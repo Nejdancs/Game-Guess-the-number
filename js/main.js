@@ -27,6 +27,11 @@ const clearText = function () {
 const resetAttempts = function () {
   totalAttempts = 0;
   attemptsEl.textContent = '';
+  outputHelp.classList.remove('open');
+
+  document
+    .querySelector('[data-input]')
+    .setAttribute('style', 'display: block');
 };
 
 chooseLvl.addEventListener('change', function () {
@@ -39,6 +44,9 @@ chooseLvl.addEventListener('change', function () {
 
   if (rangeValue !== '0') {
     message = `Угадай число от 1 до ${rangeValue}`;
+    document
+      .querySelector('.js-content')
+      .setAttribute('style', 'display: block');
   } else {
     message = '';
   }
@@ -54,6 +62,8 @@ btnRefresh.addEventListener('click', function () {
 });
 
 btnHelp.addEventListener('click', function () {
+  outputHelp.classList.add('open');
+
   if (!isNaN(randomNumber)) {
     outputHelp.textContent = `Загаданное число ${randomNumber}`;
   } else {
@@ -68,8 +78,12 @@ const checkNumber = function (value) {
   attemptsEl.textContent = `Попыток: ${totalAttempts}`;
 
   if (Number(value) === randomNumber) {
-    generateNumber(rangeValue);
+    // generateNumber(rangeValue);
     clearText();
+
+    if (outputHelp.classList.contains('open')) {
+      return `Хитрец! Вы подсмотрели загаданное число ${value}`;
+    }
     return `Ура! Вы угадали число ${value} с ${totalAttempts} попытки!`;
   } else if (rangeValue === 0 || rangeValue === '0') {
     attemptsEl.textContent = '';
@@ -90,8 +104,13 @@ btnSubmit.addEventListener('click', function () {
 
   if (
     resultEl.textContent ===
-    `Ура! Вы угадали число ${value} с ${totalAttempts} попытки!`
+      `Ура! Вы угадали число ${value} с ${totalAttempts} попытки!` ||
+    resultEl.textContent === `Хитрец! Вы подсмотрели загаданное число ${value}`
   ) {
     resetAttempts();
+
+    document
+      .querySelector('[data-input]')
+      .setAttribute('style', 'display: none');
   }
 });
