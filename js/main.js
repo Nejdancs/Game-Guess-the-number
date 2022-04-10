@@ -84,7 +84,7 @@ const checkNumber = function (value) {
     if (outputHelp.classList.contains('open')) {
       return `Хитрец! Вы подсмотрели загаданное число ${value}`;
     }
-    return `Ура! Вы угадали число ${value} с ${totalAttempts} попытки!`;
+    return `Ура! Вы угадали число ${value}, с ${totalAttempts}-й попытки!`;
   } else if (rangeValue === 0 || rangeValue === '0') {
     attemptsEl.textContent = '';
     return `Вы не выбрали сложность`;
@@ -104,7 +104,7 @@ btnSubmit.addEventListener('click', function () {
 
   if (
     resultEl.textContent ===
-      `Ура! Вы угадали число ${value} с ${totalAttempts} попытки!` ||
+      `Ура! Вы угадали число ${value}, с ${totalAttempts}-й попытки!` ||
     resultEl.textContent === `Хитрец! Вы подсмотрели загаданное число ${value}`
   ) {
     resetAttempts();
