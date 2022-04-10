@@ -31,6 +31,7 @@ const resetAttempts = function () {
 
 chooseLvl.addEventListener('change', function () {
   rangeValue = chooseLvl.value;
+
   clearText();
   resetAttempts();
 
@@ -43,7 +44,6 @@ chooseLvl.addEventListener('change', function () {
   }
 
   document.querySelector('.js-lvl').textContent = message;
-
   generateNumber(rangeValue);
 });
 

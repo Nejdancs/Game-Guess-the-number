@@ -7,32 +7,47 @@
     <title>Угадай число</title>
   </head>
   <body>
-    <h1>Guess the number</h1>
+    <div
+      style="
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px;
+      "
+    >
+      <h1>Угадай число</h1>
 
-    <label>
-      Выбери уровень сложности
+      <label>
+        Выберите уровень сложности
 
-      <select name="select" data-lvl>
-        <option value="0" selected>Выбрать уровень</option>
-        <option value="10">Легкий(от 1 до 10)</option>
-        <option value="50">Средний(от 1 до 50)</option>
-        <option value="100">Тяжелый(от 1 до 100)</option>
-      </select>
-    </label>
+        <select name="select" data-lvl>
+          <option value="0" selected>Выбрать уровень</option>
+          <option value="10">Легкий(от 1 до 10)</option>
+          <option value="50">Средний(от 1 до 50)</option>
+          <option value="100">Тяжелый(от 1 до 100)</option>
+        </select>
+      </label>
 
-    <p class="js-lvl"></p>
+      <p class="js-lvl"></p>
 
-    <p class="js-help"></p>
-    <button type="button" data-help>Показать загаданное число</button>
-    <button type="button" data-refresh>Загадать новое число</button>
+      <p class="js-help"></p>
+      <button type="button" data-help>Показать загаданное число</button>
+      <button style="margin-top: 10px" type="button" data-refresh>
+        Загадать новое число
+      </button>
 
-    <p class="js-attempts"></p>
-    <p class="js-output"></p>
+      <p class="js-attempts"></p>
+      <p class="js-output"></p>
 
-    <form>
-      <input type="number" name="guess" data-value />
-      <button type="button" data-submit>Go</button>
-    </form>
+      <form>
+        <label>
+          Введите число
+          <input type="number" name="guess" data-value />
+        </label>
+        <button type="button" data-submit>Угадать</button>
+      </form>
+    </div>
 
     <script src="./js/main.js" type="module"></script>
   </body>
