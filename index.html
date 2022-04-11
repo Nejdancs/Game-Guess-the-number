@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Угадай число</title>
+
+    <style>
+      .is-hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <div
@@ -18,20 +24,30 @@
     >
       <h1>Угадай число</h1>
 
+      <p class="js-info is-hidden">
+        Легкий уровень: За угаданное число +5 балла.<br />Средний уровень : За
+        угаданное число +10 баллов.<br />Сложный уровень: За угаданное число +15
+        баллов.<br />
+        За неверный ответ вы теряете 1 балл.
+      </p>
+      <button type="button" style="margin-bottom: 10px" data-info>
+        Информация
+      </button>
+
       <label>
         Выберите уровень сложности
 
         <select name="select" data-lvl>
           <option value="0" selected disabled>Выбрать уровень</option>
           <option value="10">Легкий(от 1 до 10)</option>
-          <option value="50">Средний(от 1 до 50)</option>
-          <option value="100">Тяжелый(от 1 до 100)</option>
+          <option value="100">Средний(от 1 до 100)</option>
+          <option value="1000">Тяжелый(от 1 до 1000)</option>
         </select>
       </label>
 
       <p class="js-lvl"></p>
 
-      <div class="js-content" style="display: none">
+      <div class="js-content is-hidden">
         <div
           style="
             display: flex;
@@ -40,7 +56,7 @@
             text-align: center;
           "
         >
-          <p class="js-help"></p>
+          <p class="js-help is-hidden"></p>
           <button type="button" data-help>Показать загаданное число</button>
           <button style="margin-top: 10px" type="button" data-refresh>
             Загадать новое число
@@ -56,6 +72,11 @@
             </label>
             <button type="button" data-submit>Угадать</button>
           </form>
+
+          <p class="js-points">
+            Общий счет баллов: <b></b
+            ><button style="margin-left: 10px" id="reset">Сбросить</button>
+          </p>
         </div>
       </div>
     </div>
