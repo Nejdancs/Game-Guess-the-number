@@ -24,30 +24,29 @@
     >
       <h1>Угадай число</h1>
 
+      <div style="margin-bottom: 10px">
+        <button class="solo" data-solo>Одиночная</button>
+        <button class="duel" data-duel>Дуэль</button>
+        <button class="change-mod is-hidden" data-change-mode>
+          Сменить режим игры
+        </button>
+      </div>
+
       <p class="js-info is-hidden">
+        <b>Одиночная игра</b><br />
         За угаданное число вы получите: <br />
         Легкий уровень: 5 баллов.<br />Средний уровень : 10 баллов.<br />Сложный
         уровень: 15 баллов.<br />
-        За неверный ответ вы теряете 1 балл.
+        За неверный ответ вы теряете 1 балл. <br /><br />
+        <b>Дуэль</b><br />Вы сразитесь с компьютером! <br />
+        Кто отгадает за меньшее кол-во попыток тот и победит. <br />
+        Сначала отгадывает компьютер, а потом вы.
       </p>
       <button type="button" style="margin-bottom: 10px" data-info>
         Информация
       </button>
 
-      <label>
-        Выберите уровень сложности
-
-        <select name="select" data-lvl>
-          <option value="0" selected disabled>Выбрать уровень</option>
-          <option value="10">Легкий(от 1 до 10)</option>
-          <option value="100">Средний(от 1 до 100)</option>
-          <option value="1000">Тяжелый(от 1 до 1000)</option>
-        </select>
-      </label>
-
-      <p class="js-lvl"></p>
-
-      <div class="js-content is-hidden">
+      <div class="js-solo-area">
         <div
           style="
             display: flex;
@@ -56,28 +55,79 @@
             text-align: center;
           "
         >
-          <p class="js-help is-hidden"></p>
-          <button type="button" data-help>Показать загаданное число</button>
-          <button style="margin-top: 10px" type="button" data-refresh>
-            Загадать новое число
-          </button>
+          <label class="js-choise-lvl is-hidden">
+            Выберите уровень сложности
 
-          <p class="js-attempts"></p>
-          <p class="js-output"></p>
+            <select name="select" data-lvl>
+              <option value="0" selected disabled>Выбрать уровень</option>
+              <option value="10">Легкий(от 1 до 10)</option>
+              <option value="100">Средний(от 1 до 100)</option>
+              <option value="1000">Тяжелый(от 1 до 1000)</option>
+            </select>
+          </label>
 
-          <form data-input>
-            <label>
-              Введите число
-              <input type="number" name="guess" data-value />
-            </label>
-            <button type="button" data-submit>Угадать</button>
-          </form>
+          <p class="js-lvl"></p>
 
-          <p class="js-points">
-            Общий счет баллов: <b></b
-            ><button style="margin-left: 10px" id="reset">Сбросить</button>
-          </p>
+          <div class="js-content">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+              "
+            >
+              <div class="js-solo is-hidden">
+                <p class="js-help is-hidden"></p>
+                <button style="display: block" type="button" data-help>
+                  Показать загаданное число
+                </button>
+                <button style="margin-top: 10px" type="button" data-refresh>
+                  Загадать новое число
+                </button>
+              </div>
+
+              <div class="js-area-gussed is-hidden">
+                <p class="js-attempts"></p>
+                <p class="js-output"></p>
+                <b class="js-output-result"></b>
+
+                <form data-input>
+                  <label>
+                    Введите число
+                    <input type="number" name="guess" data-value />
+                  </label>
+                  <button type="button" data-submit>Угадать</button>
+                </form>
+              </div>
+
+              <div class="js-point-area is-hidden">
+                <p class="js-points">
+                  Общий счет баллов: <b></b
+                  ><button style="margin-left: 10px" id="reset">
+                    Сбросить
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="js-duel-area is-hidden" style="text-align: center">
+        <button data-guessed>Загадал!</button>
+        <p class="js-total-guessed"></p>
+        <p class="js-output-message"></p>
+        <div class="js-input-area is-hidden">
+          <button data-smaller>Мое число меньше</button
+          ><button style="margin-left: 5px; margin-right: 5px" data-gussedRight>
+            Угадал!</button
+          ><button data-bigger>Мое число больше</button>
+        </div>
+        <button class="is-hidden" data-ready>Поехали</button>
+        <button class="is-hidden" style="margin-top: 15px" id="refresh">
+          Сыграть еще
+        </button>
       </div>
     </div>
 
