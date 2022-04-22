@@ -25,9 +25,9 @@
       <h1>Угадай число</h1>
 
       <div style="margin-bottom: 10px">
-        <button class="solo" data-solo>Одиночная</button>
-        <button class="duel" data-duel>Дуэль</button>
-        <button class="change-mod is-hidden" data-change-mode>
+        <button class="solo" type="button" data-solo>Одиночная</button>
+        <button class="duel" type="button" data-duel>Дуэль</button>
+        <button class="change-mod is-hidden" type="button" data-change-mode>
           Сменить режим игры
         </button>
       </div>
@@ -104,7 +104,7 @@
               <div class="js-point-area is-hidden">
                 <p class="js-points">
                   Общий счет баллов: <b></b
-                  ><button style="margin-left: 10px" id="reset">
+                  ><button type="button" style="margin-left: 10px" id="reset">
                     Сбросить
                   </button>
                 </p>
@@ -115,17 +115,26 @@
       </div>
 
       <div class="js-duel-area is-hidden" style="text-align: center">
-        <button data-guessed>Загадал!</button>
+        <button type="button" data-guessed>Загадал!</button>
         <p class="js-total-guessed"></p>
         <p class="js-output-message"></p>
         <div class="js-input-area is-hidden">
-          <button data-smaller>Мое число меньше</button
-          ><button style="margin-left: 5px; margin-right: 5px" data-gussedRight>
+          <button type="button" data-smaller>Мое число меньше</button
+          ><button
+            style="margin-left: 5px; margin-right: 5px"
+            type="button"
+            data-gussedRight
+          >
             Угадал!</button
-          ><button data-bigger>Мое число больше</button>
+          ><button type="button" data-bigger>Мое число больше</button>
         </div>
-        <button class="is-hidden" data-ready>Поехали</button>
-        <button class="is-hidden" style="margin-top: 15px" id="refresh">
+        <button class="is-hidden" type="button" data-ready>Поехали</button>
+        <button
+          class="is-hidden"
+          type="button"
+          style="margin-top: 15px"
+          id="refresh"
+        >
           Сыграть еще
         </button>
       </div>

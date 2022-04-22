@@ -208,6 +208,21 @@ btnSubmit.addEventListener('click', function () {
   }
 });
 
+valueInput.addEventListener('keydown', ({ key }) => {
+  if (key === 'Enter') {
+    event.preventDefault();
+    const value = valueInput.value;
+    counterAttempts(value);
+    clearText();
+    outputResult.textContent = checkNumber(value);
+
+    if (isGuessed) {
+      resetAttempts();
+      areaInput.classList.add('is-hidden');
+    }
+  }
+});
+
 btnInfo.addEventListener('click', function () {
   outputInfo.classList.toggle('is-hidden');
 });
